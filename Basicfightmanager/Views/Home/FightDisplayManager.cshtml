@@ -29,7 +29,7 @@
                 <input id="winningRobotName" type="text" class="form-control" />
             </div>
             <div class="form-group">
-                <label>Winning robot name</label>
+                <label>Losing robot name</label>
                 <input id="losingRobotName" type="text" class="form-control" />
             </div>
             <div class="form-group">
@@ -41,8 +41,13 @@
                 </select>
             </div>
         </form>
-        <button onclick="showOutcome()">Show match outcome</button>
+        <button class="btn btn-info" onclick="showOutcome()">Show match outcome</button>
     </div>
+    
+</div>
+<br />
+<br />
+<div class="row">
     <div class="col-md-6">
         <div id="clock"></div>
         <button class="btn btn-success" onclick="startClock()">Start timer</button>
@@ -58,5 +63,7 @@
     var clock = $('#clock').FlipClock({
         clockFace: 'MinuteCounter'
     });
+    clock.stop();
+    clock.reset();
 
 </script>
