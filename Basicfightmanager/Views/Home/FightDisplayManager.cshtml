@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "Fight Display Manager";
+}
+<link href="~/Content/flipclock.css" rel="stylesheet" />
+<script src="~/Scripts/flipclock.min.js"></script>
+<script src="~/Scripts/signalRFightManagement.js"></script>
+
+<h2>Fight Display Manager</h2>
+<div class="row">
+    <div class="col-md-6">
+        <form>
+            <div class="form-group">
+                <label>Robot 1 name</label>
+                <input id="robot1Name" type="text" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Robot 2 name</label>
+                <input id="robot2Name" type="text" class="form-control" />
+            </div>
+        </form>
+
+        <button class="btn btn-success" onclick="updateRobotNames()">Update Robot Names</button>
+    </div>
+    <div class="col-md-6">
+        <form>
+            <div class="form-group">
+                <label>Winning robot name</label>
+                <input id="winningRobotName" type="text" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Winning robot name</label>
+                <input id="losingRobotName" type="text" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Win Type</label>
+                <select id="winningType">
+                    <option value="Knockout">Knockout</option>
+                    <option value="Judges decision">Judge's Decision</option>
+                    <option value="Tie">Tie</option>
+                </select>
+            </div>
+        </form>
+        <button onclick="showOutcome()">Show match outcome</button>
+    </div>
+    <div class="col-md-6">
+        <div id="clock"></div>
+        <button class="btn btn-success" onclick="startClock()">Start timer</button>
+
+        <button class="btn btn-default" onclick="stopClock()">Stop timer</button>
+    </div>
+</div>
+<div id="fights">
+
+</div>
+
+<script>
+    var clock = $('#clock').FlipClock({
+        clockFace: 'MinuteCounter'
+    });
+
+</script>

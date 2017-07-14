@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Fight Display";
+}
+<link href="~/Content/flipclock.css" rel="stylesheet" />
+<script src="~/Scripts/flipclock.min.js"></script>
+<script src="~/Scripts/signalRFightManagement.js"></script>
+<h2>Fight Display</h2>
+<div class="row">
+    <div class="col-md-4" style="text-align:center">
+        <div style="background-color:red">
+            <h2 id="robot1Name" style="color:white"></h2>
+        </div>
+    </div>
+    <div class="col-md-4" style="text-align:center">
+        <h3>versus</h3>
+    </div>
+    <div class="col-md-4" style="text-align:center">
+        <div style="background-color:blue">
+            <h2 id="robot2Name" style="color:white"></h2>
+        </div>
+    </div>
+</div>
+<div class="row result">
+    <div class="col-md-4" style="text-align:center">
+        <h2 id="winningRobot"></h2>
+    </div>
+    <div class="col-md-4" style="text-align:center">
+        <h2 id="winType"></h2>
+    </div>
+    <div class="col-md-4" style="text-align:center">
+        <h2 id="losingRobot"></h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12" style="text-align:center">
+        <div id="clock" style="display:inline-block"></div>
+    </div>
+</div>
+<style>
+    #clock {
+    transform-origin: 0 0;
+    transform: scale(2);
+    -ms-transform: scale(2);
+    -webkit-transform-origin: 0 0;
+    -webkit-transform: scale(2);
+    -o-transform-origin: 0 0;
+    -o-transform: scale(2));
+    -moz-transform-origin: 0 0;
+    -moz-transform: scale(2);
+}</style>
+<script>
+    var clock = $('#clock').FlipClock({clockFace: 'MinuteCounter'});
+
+</script>
