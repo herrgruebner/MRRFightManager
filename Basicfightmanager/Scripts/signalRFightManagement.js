@@ -2,7 +2,7 @@
 var manager = $.connection.fightManagementHub;
 periodic();
 manager.client.startTimer = function () {
-    var startAudio = new Audio("/Content/start.mp3");
+    var startAudio = new Audio("~/Content/start.mp3");
     if (clock.getTime().time === 179) {
         startAudio.play();
     }
@@ -69,9 +69,9 @@ function periodic() {
 }
 
 
-var endAudio = new Audio("/Content/ENDgame.mp3");
-var pitAudio = new Audio("/Content/pit.mp3");
-var beep = new Audio("/Content/beep.mp3");
+var endAudio = new Audio("~/Content/ENDgame.mp3");
+var pitAudio = new Audio("~/Content/pit.mp3");
+var beep = new Audio("~/Content/beep.mp3");
 function playSoundIf() {
     if (typeof clock !== 'undefined') {
         console.log(clock.getTime().time);
