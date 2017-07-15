@@ -2,7 +2,7 @@
 var manager = $.connection.fightManagementHub;
 manager.client.startTimer = function () {
     var startAudio = new Audio("/Content/start.mp3");
-    if (clock.getTime().time === 180) {
+    if (clock.getTime().time === 179) {
         startAudio.play();
     }
     clock.start(playSoundIf);
@@ -10,7 +10,7 @@ manager.client.startTimer = function () {
 
 manager.client.resetTimer = function () {
     clock.reset();
-    clock.setTime(65);
+    clock.setTime(180);
     clock.setCountdown(true);
 }
 
