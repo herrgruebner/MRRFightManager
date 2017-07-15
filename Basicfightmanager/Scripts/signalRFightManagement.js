@@ -6,6 +6,8 @@ manager.client.startTimer = function () {
 
 manager.client.resetTimer = function () {
     clock.reset();
+    clock.setTime(180);
+    clock.setCountdown(true);
 }
 
 manager.client.stopTimer = function () {
@@ -22,13 +24,13 @@ manager.client.updateRobotNames = function (name1, name2) {
 manager.client.showOutcome = function (winningRobot, losingRobot, winType) {
     $('.result #winningRobot').text(winningRobot);
     $('.result #losingRobot').text(losingRobot);
-    if (winType = 'Tie') {
+    if (winType === 'Tie') {
         $('.result #winType').text('tied with')
     }
-    else if (winType = 'Knockout') {
+    else if (winType === 'Knockout') {
         $('.result #winType').text('knocked out')
     }
-    else if (winType = 'Tie') {
+    else if (winType === 'Tie') {
         $('.result #winType').text('beat')
     }
     $('#competitors').addClass('hidden');
