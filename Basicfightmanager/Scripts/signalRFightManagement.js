@@ -1,6 +1,11 @@
 ﻿
 var manager = $.connection.fightManagementHub;
+periodic();
 manager.client.startTimer = function () {
+    var startAudio = new Audio("/Content/start.mp3");
+    if (clock.getTime().time === 179) {
+        startAudio.play();
+    }
     clock.start();
 }
 
@@ -39,6 +44,7 @@ manager.client.showOutcome = function (winningRobot, losingRobot, winType) {
 }
 function startClock() {
     manager.server.startTimer();
+
 }
 
 function stopClock() {
@@ -54,6 +60,40 @@ function updateRobotNames() {
     var name2 = $('#robot2Name').val();
     manager.server.updateRobotNames(name1, name2);
     
+}
+
+
+function periodic() {
+    playSoundIf();
+    setTimeout(periodic, 500);
+}
+
+
+var endAudio = new Audio("/Content/ENDgame.mp3");
+var pitAudio = new Audio("/Content/pit.mp3");
+var beep = new Audio("/Content/beep.mp3");
+function playSoundIf() {
+    if (typeof clock !== 'undefined') {
+        console.log(clock.getTime().time);
+        if (clock.getTime().time === 1) {
+            endAudio.play();
+        }
+        else if (clock.getTime().time === 61) {
+            beep.play();
+        }
+        else if (clock.getTime().time === 62) {
+            beep.play();
+        }
+        else if (clock.getTime().time === 63) {
+            beep.play();
+        }
+        else if (clock.getTime().time === 64) {
+            beep.play();
+        }
+        else if (clock.getTime().time === 65) {
+            beep.play();
+        }
+    }
 }
 
 function queueFight(row) {
