@@ -1,17 +1,16 @@
 ﻿
 var manager = $.connection.fightManagementHub;
-periodic();
 manager.client.startTimer = function () {
     var startAudio = new Audio("/Content/start.mp3");
-    if (clock.getTime().time === 179) {
+    if (clock.getTime().time === 180) {
         startAudio.play();
     }
-    clock.start();
+    clock.start(playSoundIf);
 }
 
 manager.client.resetTimer = function () {
     clock.reset();
-    clock.setTime(180);
+    clock.setTime(65);
     clock.setCountdown(true);
 }
 
@@ -63,34 +62,40 @@ function updateRobotNames() {
 }
 
 
-function periodic() {
-    playSoundIf();
-    setTimeout(periodic, 500);
-}
-
-
 var endAudio = new Audio("/Content/ENDgame.mp3");
 var pitAudio = new Audio("/Content/pit.mp3");
 var beep = new Audio("/Content/beep.mp3");
 function playSoundIf() {
     if (typeof clock !== 'undefined') {
-        console.log(clock.getTime().time);
-        if (clock.getTime().time === 1) {
+        var time = clock.getTime().time-1;
+        console.log(time);
+        if (time === 0) {
             endAudio.play();
         }
-        else if (clock.getTime().time === 61) {
+        else if (time === 60) {
+            pitAudio.play();
+        }
+        else if (time === 58) {
+            pitAudio.pause();
+        }
+        else if (time === 61) {
+            beep.pause();
+            beep.load();
             beep.play();
         }
-        else if (clock.getTime().time === 62) {
+        else if (time === 62) {
+            beep.pause();
+            beep.load();
             beep.play();
         }
-        else if (clock.getTime().time === 63) {
+        else if (time === 63) {
+            beep.pause();
+            beep.load();
             beep.play();
         }
-        else if (clock.getTime().time === 64) {
-            beep.play();
-        }
-        else if (clock.getTime().time === 65) {
+        else if (time === 64) {
+            beep.pause();
+            beep.load();
             beep.play();
         }
     }
