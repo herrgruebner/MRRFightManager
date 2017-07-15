@@ -1,8 +1,11 @@
 ﻿
 var manager = $.connection.fightManagementHub;
 manager.client.startTimer = function () {
-    clock.reset();
     clock.start();
+}
+
+manager.client.resetTimer = function () {
+    clock.reset();
 }
 
 manager.client.stopTimer = function () {
@@ -38,6 +41,10 @@ function startClock() {
 
 function stopClock() {
     manager.server.stopTimer();
+}
+
+function resetClock() {
+    manager.server.resetTimer();
 }
 
 function updateRobotNames() {

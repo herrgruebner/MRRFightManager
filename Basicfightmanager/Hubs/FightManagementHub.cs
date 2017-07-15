@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Lifetime;
 using System.Web;
 using Microsoft.AspNet.SignalR;
 
@@ -19,6 +20,11 @@ namespace CombatDBUI
         public void StopTimer()
         {
             Clients.All.StopTimer();
+        }
+
+        public void ResetTimer()
+        {
+            Clients.All.ResetTimer();
         }
         public void UpdateRobotNames(string name1, string name2)
         {
