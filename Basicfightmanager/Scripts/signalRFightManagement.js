@@ -79,26 +79,25 @@ function playSoundIf() {
             pitAudio.pause();
         }
         else if (time === 61) {
-            beep.pause();
-            beep.load();
-            beep.play();
+            resetPlayBeep();
         }
         else if (time === 62) {
-            beep.pause();
-            beep.load();
-            beep.play();
+            resetPlayBeep();
         }
         else if (time === 63) {
-            beep.pause();
-            beep.load();
-            beep.play();
+            resetPlayBeep();
         }
         else if (time === 64) {
-            beep.pause();
-            beep.load();
-            beep.play();
+            resetPlayBeep();
         }
     }
+}
+
+/// Due to the length of the sound file, the beep noise basically needs to be reset before it can play again.
+function resetPlayBeep() {
+    beep.pause();
+    beep.load();
+    beep.play();
 }
 
 function queueFight(row) {
